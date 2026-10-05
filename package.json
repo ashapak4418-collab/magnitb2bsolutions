@@ -1,0 +1,26 @@
+{
+  "name": "magnitb2bsolutions",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000m\u0000a\u0000g\u0000n\u0000i\u0000t\u0000b\u00002\u0000b\u0000-\u0000s\u0000o\u0000l\u0000u\u0000t\u0000i\u0000o\u0000n\u0000s\u0000\r\u0000 \u0000#\u0000 \u0000m\u0000a\u0000g\u0000n\u0000i\u0000t\u0000b\u00002\u0000b\u0000-\u0000s\u0000o\u0000l\u0000u\u0000t\u0000i\u0000o\u0000n\u0000s\u0000\r\u0000 \u0000#\u0000 \u0000m\u0000a\u0000g\u0000n\u0000i\u0000t\u0000b\u00002\u0000b\u0000s\u0000o\u0000l\u0000u\u0000t\u0000i\u0000o\u0000n\u0000s\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashapak4418-collab/magnitb2bsolutions.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/ashapak4418-collab/magnitb2bsolutions/issues"
+  },
+  "homepage": "https://github.com/ashapak4418-collab/magnitb2bsolutions#readme",
+  "dependencies": {
+    "body-parser": "^2.3.0",
+    "cors": "^2.8.6",
+    "express": "^5.2.1"
+  }
+}

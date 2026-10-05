@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>B2B Bridge Hub | Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <div class="flex h-screen overflow-hidden">
+        
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-900 text-slate-300 hidden md:flex flex-col">
+            <div class="p-6 text-xl font-bold text-white border-b border-slate-800">
+                B2B Bridge <span class="text-blue-500 text-sm">Dashboard</span>
+            </div>
+            <nav class="flex-1 p-4 space-y-2">
+                <a href="#" class="block px-4 py-2.5 rounded-lg bg-blue-600 text-white font-medium">Overview</a>
+                <a href="#fmcg" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">🛒 FMCG Orders</a>
+                <a href="#facility" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">🏢 Facility Management</a>
+                <a href="#renewable" class="block px-4 py-2.5 rounded-lg hover:bg-slate-800 transition">⚡ Renewable Energy</a>
+            </nav>
+            <div class="p-4 border-t border-slate-800 text-sm text-slate-500">
+                Logged in as Admin
+            </div>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="flex-1 flex flex-col overflow-y-auto">
+            
+            <!-- Top Navbar -->
+            <header class="bg-white shadow-sm h-16 flex items-center justify-between px-8">
+                <h2 class="text-xl font-semibold text-gray-800">Operations Control Center</h2>
+                <div class="flex items-center gap-4">
+                    <span class="text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">● System Live</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Content -->
+            <div class="p-8 space-y-8">
+                
+                <!-- Stats Cards Row -->
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500 font-medium">Pending FMCG Orders</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mt-2">1,248</h3>
+                        <span class="text-xs text-orange-500 font-medium">⚠️ 12 delayed shipments</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500 font-medium">Active Facility Tickets</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mt-2">42</h3>
+                        <span class="text-xs text-blue-500 font-medium">⚡ 38 resolved today</span>
+                    </div>
+                    <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-200">
+                        <p class="text-sm text-gray-500 font-medium">Renewable Assets Monitored</p>
+                        <h3 class="text-3xl font-bold text-gray-800 mt-2">315 MW</h3>
+                        <span class="text-xs text-green-600 font-medium">✓ Optimal efficiency</span>
+                    </div>
+                </div>
+
+                <!-- Recent Activity Tables / Sections -->
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-200 p-6">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">FMCG Supply Tracker (Placed vs Delivered)</h3>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left text-sm text-gray-600">
+                            <thead class="bg-gray-50 text-gray-700 uppercase text-xs">
+                                <tr>
+                                    <th class="p-3">Order ID</th>
+                                    <th class="p-3">Distributor</th>
+                                    <th class="p-3">Items Ordered</th>
+                                    <th class="p-3">Status</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200">
+                                <tr>
+                                    <td class="p-3 font-medium text-gray-800">#FMCG-9021</td>
+                                    <td class="p-3">Apex Retailers Ltd</td>
+                                    <td class="p-3">500 Units (Beverages)</td>
+                                    <td class="p-3"><span class="bg-yellow-100 text-yellow-700 px-2 py-1 rounded text-xs">In Transit</span></td>
+                                </tr>
+                                <tr>
+                                    <td class="p-3 font-medium text-gray-800">#FMCG-9022</td>
+                                    <td class="p-3">Metro Supplies</td>
+                                    <td class="p-3">1,200 Units (Packaged Foods)</td>
+                                    <td class="p-3"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs">Delivered</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+</body>
+</html>

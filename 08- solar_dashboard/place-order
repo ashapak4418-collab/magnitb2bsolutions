@@ -1,0 +1,91 @@
+<div style="font-family: Arial, sans-serif; background: #f8f9fa; padding: 20px; border-radius: 8px; max-width: 900px; margin: auto;">
+    <h2 style="color: #2c3e50; margin-top: 0;">☀️ MagnitB2BSolutions - Renewable Energy & Solar Dashboard</h2>
+    <p style="color: #666; font-size: 13px;">Managing Solapur, Dharashiv, Beed & Latur Solar Leads & EPC Partners</p>
+
+    <!-- 1. Metrics / Quick Stats Bar -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 20px;">
+        <div style="background: #fff; padding: 12px; border-radius: 6px; border-left: 4px solid #ff8c00; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <span style="font-size: 12px; color: #777;">Total Solar Leads</span>
+            <h3 style="margin: 5px 0 0 0; color: #2c3e50;" id="metricTotalLeads">24</h3>
+        </div>
+        <div style="background: #fff; padding: 12px; border-radius: 6px; border-left: 4px solid #27ae60; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <span style="font-size: 12px; color: #777;">Converted / Installed</span>
+            <h3 style="margin: 5px 0 0 0; color: #2c3e50;" id="metricConverted">8</h3>
+        </div>
+        <div style="background: #fff; padding: 12px; border-radius: 6px; border-left: 4px solid #e74c3c; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <span style="font-size: 12px; color: #777;">Pending Survey</span>
+            <h3 style="margin: 5px 0 0 0; color: #2c3e50;" id="metricPending">6</h3>
+        </div>
+        <div style="background: #fff; padding: 12px; border-radius: 6px; border-left: 4px solid #2980b9; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+            <span style="font-size: 12px; color: #777;">Commission Earned</span>
+            <h3 style="margin: 5px 0 0 0; color: #2c3e50;" id="metricCommission">₹3,40,000</h3>
+        </div>
+    </div>
+
+    <!-- 2. Live Leads Table Section -->
+    <div style="background: #fff; padding: 15px; border-radius: 6px; margin-bottom: 20px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <h3 style="color: #2c3e50; margin-top: 0; font-size: 16px;">📥 Live Solar Inquiries & Leads</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <thead>
+                <tr style="background: #eaeded; text-align: left;">
+                    <th style="padding: 8px;">Lead ID</th>
+                    <th style="padding: 8px;">Customer / Business</th>
+                    <th style="padding: 8px;">Requirement</th>
+                    <th style="padding: 8px;">District</th>
+                    <th style="padding: 8px;">Assigned Partner</th>
+                    <th style="padding: 8px;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="solarLeadsTable">
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;">#SOL-101</td>
+                    <td style="padding: 8px;">Shree Ram Cold Storage</td>
+                    <td style="padding: 8px;">Commercial Rooftop (50kW)</td>
+                    <td style="padding: 8px;">Solapur</td>
+                    <td style="padding: 8px;">Barshi Solar Tech</td>
+                    <td style="padding: 8px;"><span style="background: #f39c12; color: #fff; padding: 3px 6px; border-radius: 3px; font-size: 11px;">Survey Done</span></td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;">#SOL-102</td>
+                    <td style="padding: 8px;">Patil Agro Farm</td>
+                    <td style="padding: 8px;">Agricultural Solar Pump</td>
+                    <td style="padding: 8px;">Dharashiv</td>
+                    <td style="padding: 8px;">Marathwada Green Power</td>
+                    <td style="padding: 8px;"><span style="background: #27ae60; color: #fff; padding: 3px 6px; border-radius: 3px; font-size: 11px;">Installed</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- 3. Solar Partner / EPC Directory Section -->
+    <div style="background: #fff; padding: 15px; border-radius: 6px; box-shadow: 0 1px 3px rgba(0,0,0,0.1);">
+        <h3 style="color: #2c3e50; margin-top: 0; font-size: 16px;">🤝 Registered Solar EPC Partners</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <thead>
+                <tr style="background: #eaeded; text-align: left;">
+                    <th style="padding: 8px;">Partner ID</th>
+                    <th style="padding: 8px;">Company Name</th>
+                    <th style="padding: 8px;">Operating Districts</th>
+                    <th style="padding: 8px;">Contact Number</th>
+                    <th style="padding: 8px;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="solarPartnersTable">
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;">#PRT-501</td>
+                    <td style="padding: 8px;">Barshi Solar Power Solutions</td>
+                    <td style="padding: 8px;">Solapur, Beed</td>
+                    <td style="padding: 8px;">+91 9822XXXXXX</td>
+                    <td style="padding: 8px; color: #27ae60; font-weight: bold;">Active</td>
+                </tr>
+                <tr style="border-bottom: 1px solid #eee;">
+                    <td style="padding: 8px;">#PRT-502</td>
+                    <td style="padding: 8px;">Latur Renewable Hub</td>
+                    <td style="padding: 8px;">Latur, Dharashiv</td>
+                    <td style="padding: 8px;">+91 9766XXXXXX</td>
+                    <td style="padding: 8px; color: #27ae60; font-weight: bold;">Active</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+<div style="padding: 20px; font-family: Arial, sans-serif; background: #f4f6f7; border-radius: 8px; max-width: 800px; margin: auto;">
+    <h2 style="color: #2c3e50; text-align: center;">⚙️ MagnitB2BSolutions - Master Admin Dashboard</h2>
+    <p style="color: #666; text-align: center; font-size: 13px;">District Coverage: Solapur | Dharashiv | Beed | Latur</p>
+
+    <!-- Quick Stats Bar -->
+    <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; margin-bottom: 20px;">
+        <div style="background: #fff; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #ff8c00;">
+            <h4 style="margin: 0; color: #555;">Total Leads</h4>
+            <p id="statLeads" style="font-size: 20px; font-weight: bold; margin: 5px 0 0 0; color: #2c3e50;">0</p>
+        </div>
+        <div style="background: #fff; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #27ae60;">
+            <h4 style="margin: 0; color: #555;">Active Partners</h4>
+            <p id="statPartners" style="font-size: 20px; font-weight: bold; margin: 5px 0 0 0; color: #2c3e50;">0</p>
+        </div>
+        <div style="background: #fff; padding: 15px; border-radius: 6px; text-align: center; border-left: 4px solid #2980b9;">
+            <h4 style="margin: 0; color: #555;">Pending Commissions</h4>
+            <p id="statCommission" style="font-size: 20px; font-weight: bold; margin: 5px 0 0 0; color: #2c3e50;">₹0</p>
+        </div>
+    </div>
+
+    <!-- Management Sections -->
+    <div style="background: #fff; padding: 15px; border-radius: 6px; margin-bottom: 15px;">
+        <h3 style="color: #2c3e50; margin-top: 0; font-size: 16px;">📥 Live District Leads Tracking</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <thead>
+                <tr style="background: #eaeded; text-align: left;">
+                    <th style="padding: 8px;">Lead ID</th>
+                    <th style="padding: 8px;">Client</th>
+                    <th style="padding: 8px;">Service</th>
+                    <th style="padding: 8px;">District</th>
+                    <th style="padding: 8px;">Status</th>
+                </tr>
+            </thead>
+            <tbody id="leadTableBody">
+                <tr><td colspan="5" style="padding: 10px; text-align: center; color: #888;">No leads captured yet.</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div style="background: #fff; padding: 15px; border-radius: 6px;">
+        <h3 style="color: #2c3e50; margin-top: 0; font-size: 16px;">🤝 Onboarded District Partners</h3>
+        <table style="width: 100%; border-collapse: collapse; font-size: 13px;">
+            <thead>
+                <tr style="background: #eaeded; text-align: left;">
+                    <th style="padding: 8px;">Partner ID</th>
+                    <th style="padding: 8px;">Company Name</th>
+                    <th style="padding: 8px;">Vertical</th>
+                    <th style="padding: 8px;">District</th>
+                </tr>
+            </thead>
+            <tbody id="partnerTableBody">
+                <tr><td colspan="4" style="padding: 10px; text-align: center; color: #888;">No partners registered yet.</td></tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<script>
+    // Sample function to simulate fetching data from backend API
+    function loadAdminDashboard() {
+        // Mock Data for demonstration view
+        document.getElementById('statLeads').innerText = "12";
+        document.getElementById('statPartners').innerText = "8";
+        document.getElementById('statCommission').innerText = "₹1,45,000";
+
+        document.getElementById('leadTableBody').innerHTML = `
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px;">#LD-4821</td>
+                <td style="padding: 8px;">Shree Ganesh Agro</td>
+                <td style="padding: 8px;">Agricultural Solar Pump</td>
+                <td style="padding: 8px;">Solapur</td>
+                <td style="padding: 8px; color: #d35400; font-weight: bold;">Routed to Partner</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px;">#LD-9102</td>
+                <td style="padding: 8px;">Apex Corporate Park</td>
+                <td style="padding: 8px;">Housekeeping FMS</td>
+                <td style="padding: 8px;">Latur</td>
+                <td style="padding: 8px; color: #27ae60; font-weight: bold;">Confirmed AMC</td>
+            </tr>
+        `;
+
+        document.getElementById('partnerTableBody').innerHTML = `
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px;">#PRT-104</td>
+                <td style="padding: 8px;">Barshi Solar Power Solutions</td>
+                <td style="padding: 8px;">Renewable Energy</td>
+                <td style="padding: 8px;">Solapur / Beed</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #eee;">
+                <td style="padding: 8px;">#PRT-109</td>
+                <td style="padding: 8px;">Marathwada Facility Care</td>
+                <td style="padding: 8px;">FMS Services</td>
+                <td style="padding: 8px;">Dharashiv / Latur</td>
+            </tr>
+        `;
+    }
+
+    // Load data on page load
+    loadAdminDashboard();
+</script>
+<div id="leadsContainer" style="padding: 20px;">
+    <h2>📊 Generated Leads & Partners</h2>
+    <ul id="leadList"></ul>
+</div>
+
+<script>
+    // Save ki hui leads load karna
+    let leads = JSON.parse(localStorage.getItem('magnitLeads')) || [];
+    let listEl = document.getElementById('leadList');
+    
+    if (leads.length === 0) {
+        listEl.innerHTML = '<li>No leads generated yet.</li>';
+    } else {
+        leads.forEach(lead => {
+            let li = document.createElement('li');
+            li.innerHTML = `<strong>${lead.name}</strong> (${lead.category}) - 📱 ${lead.contact} <i>(${lead.date})</i>`;
+            listEl.appendChild(li);
+        });
+    }
+</script>
+<div style="padding: 20px;">
+    <h2>📊 All Collected Leads</h2>
+    <ul id="allLeadsList">Loading...</ul>
+</div>
+
+<script>
+    fetch('http://localhost:3000/api/leads')
+    .then(response => response.json())
+    .then(leads => {
+        let listEl = document.getElementById('allLeadsList');
+        listEl.innerHTML = '';
+        
+        if (leads.length === 0) {
+            listEl.innerHTML = '<li>No leads found in collection.</li>';
+        } else {
+            leads.forEach((lead, index) => {
+                let li = document.createElement('li');
+                li.innerHTML = `<b>#${index + 1}</b> - ${lead.name} | 📱 ${lead.phone} | 📍 ${lead.district} | <i>(${lead.date})</i>`;
+                listEl.appendChild(li);
+            });
+        }
+    });
+</script>

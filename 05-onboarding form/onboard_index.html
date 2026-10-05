@@ -1,0 +1,168 @@
+<div class="onboarding-container" style="padding: 20px; font-family: Arial, sans-serif; background: #fff; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">📝 MagnitB2B Partner Onboarding Portal</h3>
+    <p style="color: #666; font-size: 13px;">Register new Stockists, Distributors, and Retailers for Barshi Hub.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Business / Shop Name:</label>
+            <input type="text" id="bizName" placeholder="Enter shop name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Number:</label>
+            <input type="text" id="bizPhone" placeholder="Mobile / WhatsApp number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Select Role:</label>
+            <select id="bizRole" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Retailer">Retailer (Subscription Plan)</option>
+                <option value="Distributor">Distributor (0.8% Commission)</option>
+                <option value="Stockist">Stockist (0.8% Commission)</option>
+                <option value="Super Stockist">Super Stockist (0.8% Commission)</option>
+            </select>
+        </div>
+        <div>
+            <label style="font-size: 13px;">District:</label>
+            <select id="bizDistrict" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="onboardPartner()" style="background: #28a745; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Register Partner</button>
+    <p id="onboardMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function onboardPartner() {
+        let name = document.getElementById('bizName').value;
+        let phone = document.getElementById('bizPhone').value;
+        let role = document.getElementById('bizRole').value;
+        let dist = document.getElementById('bizDistrict').value;
+
+        if(name.trim() === "" || phone.trim() === "") {
+            alert("Kripya shop name aur contact number enter karein.");
+            return;
+        }
+
+        document.getElementById('onboardMsg').innerHTML = "✅ Success! " + name + " (" + role + ") successfully onboarded for " + dist + " district under Admin Ashapak Atar (7020955003).";
+        document.getElementById('bizName').value = "";
+        document.getElementById('bizPhone').value = "";
+    }
+</script><div class="onboard-container" style="padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">🤝 Renewable Energy Partner & Distributor Onboarding</h3>
+    <p style="color: #666; font-size: 13px;">Register solar companies, EPC contractors, and local distributors onto MagnitB2BSolutions.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Company / Distributor Name:</label>
+            <input type="text" id="compName" placeholder="Enter business name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Person / Owner:</label>
+            <input type="text" id="compOwner" placeholder="Owner name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Phone / WhatsApp Number:</label>
+            <input type="text" id="compPhone" placeholder="Mobile number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Operating District / Region:</label>
+            <select id="compRegion" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Pune">Pune</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+                <option value="All Maharashtra">All Maharashtra</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="registerSolarPartner()" style="background: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Register Partner / Company</button>
+    <p id="compMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function registerSolarPartner() {
+        let name = document.getElementById('compName').value;
+        let owner = document.getElementById('compOwner').value;
+        let phone = document.getElementById('compPhone').value;
+        let region = document.getElementById('compRegion').value;
+
+        if(name.trim() === "" || phone.trim() === "") {
+            alert("Kripya Company Name aur Phone number enter karein.");
+            return;
+        }
+
+        document.getElementById('compMsg').innerHTML = "✅ Partner Successfully Onboarded! " + name + " (" + owner + ") registered for " + region + " region. Ready to receive leads.";
+        document.getElementById('compName').value = "";
+        document.getElementById('compOwner').value = "";
+        document.getElementById('compPhone').value = "";
+    }
+   </script><div class="fms-container" style="padding: 20px; font-family: Arial, sans-serif; background: #fff; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">🏢 Facility Management Services (FMS)</h3>
+    <p style="color: #666; font-size: 13px;">Request housekeeping, security, or maintenance for offices & factories.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Company / Society Name:</label>
+            <input type="text" id="fmsClient" placeholder="Enter organization name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Number:</label>
+            <input type="text" id="fmsPhone" placeholder="Mobile number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Service Required:</label>
+            <select id="fmsService" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Housekeeping & Cleaning">Housekeeping & Cleaning</option>
+                <option value="Security Guards">Security Guards</option>
+                <option value="Electrical & Plumbing Maintenance">Electrical & Plumbing Maintenance</option>
+                <option value="Complete Facility Management">Complete Facility Management (AMC)</option>
+            </select>
+        </div>
+        <div>
+            <label style="font-size: 13px;">District / Location:</label>
+            <select id="fmsDistrict" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Pune">Pune</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="submitFmsRequest()" style="background: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Book Facility Service</button>
+    <p id="fmsMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function submitFmsRequest() {
+        let client = document.getElementById('fmsClient').value;
+        let phone = document.getElementById('fmsPhone').value;
+        let service = document.getElementById('fmsService').value;
+        let dist = document.getElementById('fmsDistrict').value;
+
+        if(client.trim() === "" || phone.trim() === "") {
+            alert("Kripya Company Name aur Phone number enter karein.");
+            return;
+        }
+
+        document.getElementById('fmsMsg').innerHTML = "✅ Request Registered! " + service + " for " + client + " in " + dist + " assigned to local FMS partner.";
+        document.getElementById('fmsClient').value = "";
+        document.getElementById('fmsPhone').value = "";
+    }
+</script>

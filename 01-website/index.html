@@ -1,0 +1,381 @@
+</script><div class="onboard-container" style="padding: 20px; font-family: Arial, sans-serif; background: #f9f9f9; border: 1px solid #ddd; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">🤝 Renewable Energy Partner & Distributor Onboarding</h3>
+    <p style="color: #666; font-size: 13px;">Register solar companies, EPC contractors, and local distributors onto MagnitB2BSolutions.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Company / Distributor Name:</label>
+            <input type="text" id="compName" placeholder="Enter business name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Person / Owner:</label>
+            <input type="text" id="compOwner" placeholder="Owner name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Phone / WhatsApp Number:</label>
+            <input type="text" id="compPhone" placeholder="Mobile number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Operating District / Region:</label>
+            <select id="compRegion" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Pune">Pune</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+                <option value="All Maharashtra">All Maharashtra</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="registerSolarPartner()" style="background: #27ae60; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Register Partner / Company</button>
+    <p id="compMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function registerSolarPartner() {
+        let name = document.getElementById('compName').value;
+        let owner = document.getElementById('compOwner').value;
+        let phone = document.getElementById('compPhone').value;
+        let region = document.getElementById('compRegion').value;
+
+        if(name.trim() === "" || phone.trim() === "") {
+            alert("Kripya Company Name aur Phone number enter karein.");
+            return;
+        }
+
+        document.getElementById('compMsg').innerHTML = "✅ Partner Successfully Onboarded! " + name + " (" + owner + ") registered for " + region + " region. Ready to receive leads.";
+        document.getElementById('compName').value = "";
+        document.getElementById('compOwner').value = "";
+        document.getElementById('compPhone').value = "";
+    }
+   </script><div class="fms-container" style="padding: 20px; font-family: Arial, sans-serif; background: #fff; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">🏢 Facility Management Services (FMS)</h3>
+    <p style="color: #666; font-size: 13px;">Request housekeeping, security, or maintenance for offices & factories.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Company / Society Name:</label>
+            <input type="text" id="fmsClient" placeholder="Enter organization name" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Number:</label>
+            <input type="text" id="fmsPhone" placeholder="Mobile number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Service Required:</label>
+            <select id="fmsService" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Housekeeping & Cleaning">Housekeeping & Cleaning</option>
+                <option value="Security Guards">Security Guards</option>
+                <option value="Electrical & Plumbing Maintenance">Electrical & Plumbing Maintenance</option>
+                <option value="Complete Facility Management">Complete Facility Management (AMC)</option>
+            </select>
+        </div>
+        <div>
+            <label style="font-size: 13px;">District / Location:</label>
+            <select id="fmsDistrict" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Pune">Pune</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="submitFmsRequest()" style="background: #2980b9; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Book Facility Service</button>
+    <p id="fmsMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function submitFmsRequest() {
+        let client = document.getElementById('fmsClient').value;
+        let phone = document.getElementById('fmsPhone').value;
+        let service = document.getElementById('fmsService').value;
+        let dist = document.getElementById('fmsDistrict').value;
+
+        if(client.trim() === "" || phone.trim() === "") {
+            alert("Kripya Company Name aur Phone number enter karein.");
+            return;
+        }
+
+        document.getElementById('fmsMsg').innerHTML = "✅ Request Registered! " + service + " for " + client + " in " + dist + " assigned to local FMS partner.";
+        document.getElementById('fmsClient').value = "";
+        document.getElementById('fmsPhone').value = "";
+    }
+</script>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagnitB2BSolutions | FMCG, Facility & Renewable Energy Bridge</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans">
+
+    <!-- Header / Navbar -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
+            <h1 class="text-2xl font-bold text-blue-600">Magnit<span class="text-gray-800">B2BSolutions</span></h1>
+            <nav class="hidden md:flex space-x-6 font-medium text-gray-600">
+                <a href="#sectors" class="hover:text-blue-600">Sectors</a>
+                <a href="#features" class="hover:text-blue-600">Features</a>
+                <a href="#contact" class="hover:text-blue-600">Request Demo</a>
+            </nav>
+            <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg font-medium hover:bg-blue-700 transition">Get Started</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="max-w-7xl mx-auto px-6 py-20 text-center">
+        <span class="bg-blue-100 text-blue-700 text-sm font-semibold px-4 py-1.5 rounded-full">The Ultimate B2B Operations Bridge</span>
+        <h2 class="text-4xl md:text-6xl font-extrabold mt-6 leading-tight">
+            Streamlining <span class="text-blue-600">FMCG, Facilities & Renewable Energy</span>
+        </h2>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto text-lg">
+            MagnitB2BSolutions ek unified platform hai jo aapke supply chain orders tracking, facility management, aur green energy assets ko seamlessly connect aur manage karta hai.
+        </p>
+        <div class="mt-8 flex justify-center gap-4">
+            <a href="#contact" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold shadow-lg hover:bg-blue-700 transition">Book a Demo</a>
+            <a href="#sectors" class="bg-white border border-gray-300 px-6 py-3 rounded-lg font-semibold text-gray-700 hover:bg-gray-100 transition">Explore Sectors</a>
+        </div>
+    </section>
+
+    <!-- Sectors Section -->
+    <section id="sectors" class="max-w-7xl mx-auto px-6 py-16">
+        <h3 class="text-3xl font-bold text-center mb-12">Our 3 Core B2B Verticals</h3>
+        <div class="grid md:grid-cols-3 gap-8">
+            
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-blue-100 text-blue-600 flex items-center justify-center rounded-xl font-bold text-xl mb-4">🛒</div>
+                <h4 class="text-xl font-bold mb-2">1. FMCG Supply Tracker</h4>
+                <p class="text-gray-600 text-sm">
+                    Orders placed vs. delivered live tracking, automated inventory alerts, aur seamless invoice reconciliation.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-green-100 text-green-600 flex items-center justify-center rounded-xl font-bold text-xl mb-4">🏢</div>
+                <h4 class="text-xl font-bold mb-2">2. Facility Management</h4>
+                <p class="text-gray-600 text-sm">
+                    On-demand professional vendor marketplace, automated ticketing system, aur strict SLA performance tracking.
+                </p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition">
+                <div class="w-12 h-12 bg-yellow-100 text-yellow-600 flex items-center justify-center rounded-xl font-bold text-xl mb-4">⚡</div>
+                <h4 class="text-xl font-bold mb-2">3. Renewable Energy</h4>
+                <p class="text-gray-600 text-sm">
+                    Green equipment B2B marketplace, maintenance scheduling, aur automated ESG carbon-offset reporting.
+                </p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact / Demo Section -->
+    <section id="contact" class="bg-blue-900 text-white py-20 mt-12">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h3 class="text-3xl font-bold mb-4">Ready to Bridge Your Operations?</h3>
+            <p class="text-blue-200 mb-8">MagnitB2BSolutions ke sath apne business operations ko automate karein.</p>
+            <form class="max-w-md mx-auto flex flex-col gap-4">
+                <input type="text" placeholder="Your Name / Company Name" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none" required>
+                <input type="email" placeholder="Business Email Address" class="px-4 py-3 rounded-lg text-gray-800 focus:outline-none" required>
+                <button type="submit" class="bg-blue-500 hover:bg-blue-400 text-white font-bold py-3 rounded-lg transition">Request Access</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-400 py-6 text-center text-sm">
+        <p>&copy; 2026 MagnitB2BSolutions. All rights reserved.</p>
+    </footer>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MagnitB2BSolutions - Barshi Hub</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f6f9; margin: 0; padding: 20px; }
+        .container { max-width: 1000px; margin: auto; background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        h1 { color: #2c3e50; font-size: 22px; margin-bottom: 5px; }
+        .sub-text { color: #555; font-size: 14px; margin-bottom: 20px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+        .card { background: #fdfdfd; border: 1px solid #ddd; padding: 15px; border-radius: 6px; }
+        .card h3 { margin-top: 0; color: #1976d2; font-size: 16px; }
+        input, select { width: 100%; padding: 8px; margin: 5px 0 10px 0; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; }
+        button { background: #28a745; color: white; border: none; padding: 10px; width: 100%; border-radius: 4px; cursor: pointer; font-weight: bold; }
+        button:hover { background: #218838; }
+        .order-box { background: #fff; border-left: 4px solid #ffc107; padding: 10px; margin-bottom: 10px; font-size: 13px; }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>📍 MagnitB2BSolutions: Barshi Hub Control Center</h1>
+    <div class="sub-text">
+        Operations Hub for: <strong>Solapur, Dharashiv, Latur, Beed</strong> | Head Admin: <strong>Ashapak Atar (7020955003)</strong><br>
+        <em style="color: #d9534f;">*Self-Delivery Model: Partners deliver own goods; platform tracks status only.*</em>
+    </div>
+
+    <div class="grid">
+        <!-- Panel 1: Retailer Order Placement -->
+        <div class="card">
+            <h3>🛒 Place Hub Order (Retailer/Distributor)</h3>
+            <label>Select Chain Level:</label>
+            <select id="chainLevel">
+                <option value="Retailer">Retailer (Kirana Store)</option>
+                <option value="Distributor">Distributor</option>
+                <option value="Stockist">Stockist</option>
+            </select>
+
+            <label>Select District:</label>
+            <select id="district">
+                <option value="Solapur">Solapur</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+            </select>
+
+            <label>Item Description:</label>
+            <input type="text" id="itemDesc" placeholder="e.g. FMCG Grocery Bundle">
+
+            <button onclick="placeOrder()">Submit & Route Order</button>
+        </div>
+
+        <!-- Panel 2: Live Tracking Dashboard -->
+        <div class="card">
+            <h3>🚚 Live Self-Delivery Tracking</h3>
+            <div id="orderList">
+                <div class="order-box">
+                    <strong>#BH-101 (Solapur)</strong><br>
+                    Retailer $\leftarrow$ Stockist<br>
+                    Status: <span style="color: #28a745; font-weight: bold;">Self-Dispatched by Partner</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function placeOrder() {
+        let chain = document.getElementById('chainLevel').value;
+        let dist = document.getElementById('district').value;
+        let item = document.getElementById('itemDesc').value;
+
+        if(item.trim() === "") {
+            alert("Kripya item description enter karein.");
+            return;
+        }
+
+        let orderId = "#BH-" + Math.floor(100 + Math.random() * 900);
+        let orderContainer = document.getElementById('orderList');
+
+        let newOrderHTML = `
+            <div class="order-box" style="border-left-color: #28a745;">
+                <strong>${orderId} (${dist} - ${chain})</strong><br>
+                Items: ${item}<br>
+                Status: <span style="color: #007bff; font-weight: bold;">Order Placed (Pending Partner Dispatch)</span>
+            </div>
+        `;
+
+        orderContainer.innerHTML = newOrderHTML + orderContainer.innerHTML;
+        document.getElementById('itemDesc').value = "";
+        alert("Order successfully placed and routed through Barshi Hub!");
+    }
+</script>
+
+</body>
+</html><div class="solar-container" style="padding: 20px; font-family: Arial, sans-serif; background: #fff; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px;">
+    <h3 style="color: #2c3e50; margin-top: 0;">☀️ Renewable Energy & Solar Lead Form</h3>
+    <p style="color: #666; font-size: 13px;">Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Full Name / Company Name:</label>
+            <input type="text" id="solarName" placeholder="Enter name or business" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+        <div>
+            <label style="font-size: 13px;">Contact Number:</label>
+            <input type="text" id="solarPhone" placeholder="Mobile / WhatsApp number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+        </div>
+    </div>
+
+    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+        <div>
+            <label style="font-size: 13px;">Requirement Type:</label>
+            <select id="solarType" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Agricultural Solar Pump">Agricultural Solar Pump</option>
+                <option value="Commercial Rooftop Solar">Commercial Rooftop Solar (C&I)</option>
+                <option value="Industrial Solar Plant">Industrial Solar Plant</option>
+            </select>
+        </div>
+        <div>
+            <label style="font-size: 13px;">District (Maharashtra):</label>
+            <select id="solarDistrict" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
+                <option value="Solapur">Solapur</option>
+                <option value="Pune">Pune</option>
+                <option value="Dharashiv">Dharashiv</option>
+                <option value="Latur">Latur</option>
+                <option value="Beed">Beed</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Nagpur">Nagpur</option>
+            </select>
+        </div>
+    </div>
+
+    <button onclick="submitSolarLead()" style="background: #ff8c00; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Submit Solar Lead</button>
+    <p id="solarMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
+</div>
+
+<script>
+    function submitSolarLead() {
+        let name = document.getElementById('solarName').value;
+        let phone = document.getElementById('solarPhone').value;
+        let type = document.getElementById('solarType').value;
+        let dist = document.getElementById('solarDistrict').value;
+
+        if(name.trim() === "" || phone.trim() === "") {
+            alert("Kripya apna naam aur contact number enter karein.");
+            return;
+        }
+
+        document.getElementById('solarMsg').innerHTML = "✅ Lead Generated! " + name + " (" + type + ") in " + dist + " district routed to local certified partner. Commission tracking active.";
+        document.getElementById('solarName').value = "";
+        document.getElementById('solarPhone').value = "";
+    }
+</script>
+<a href="onboarding.html">Partner Onboarding</a>
+document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const leadData = {
+        name: document.getElementById('solarName').value,
+        phone: document.getElementById('solarPhone').value,
+        requirement: document.getElementById('solarRequirement').value,
+        district: document.getElementById('solarDistrict').value,
+        date: new Date().toLocaleString()
+    };
+
+    // Server par data bhejna
+    fetch('http://localhost:3000/api/leads', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(leadData)
+    })
+    .then(response => response.json())
+    .then(data => {
+        alert('Lead Successfully Generated & Saved to Collection!');
+        this.reset();
+    })
+    .catch(error => console.error('Error:', error));
+});
