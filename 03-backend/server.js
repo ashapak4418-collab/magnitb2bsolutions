@@ -38,8 +38,7 @@ app.get('/api/facility-tickets', (req, res) => {
 // Start Server
 app.listen(PORT, () => {
     console.log(`MagnitB2BSolutions Backend running on http://localhost:${PORT}`);
-    <h2 style="color: #2c3e50; margin-bottom: 5px;">🚀 MagnitB2B Automated Control Panel</h2>
-    <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
+<h2 style="color: #2c3e50; margin-bottom: 5px;">🚀 MagnitB2B Automated Control Panel</h2>    <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
         Head Admin: <strong style="color: #007bff;">Ashapak Atar (7020955003)</strong>
     </p>
 
@@ -425,4 +424,8 @@ app.listen(PORT, () => {
 });
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
+});
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server running on port ${PORT}`);
 });
