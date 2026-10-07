@@ -1,59 +1,26 @@
 const express = require('express');
-const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-app.use(bodyParser.json());
+
+// Middleware
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// In-memory database (Aap ise baad me MongoDB ya Firebase se connect kar sakte hain)
-let partners = [];
-let orders = [];
-
-// 1. Partner Onboarding API Endpoint
-app.post('/api/onboard', (req, res) => {
-    const { name, phone, role, district } = req.body;
-    if (!name || !phone) {
-        return res.status(400).json({ success: false, message: 'Name and phone are required.' });
-    }
-    
-    const newPartner = { id: Date.now(), name, phone, role, district };
-    partners.push(newPartner);
-    res.json({ success: true, message: 'Partner successfully registered!', partner: newPartner });
+// Root Route (Health Check for Render)
+app.get('/', (req, res) => {
+    res.status(200).send('🚀 MagnitB2B Backend Server is Running!');
 });
 
-// Get all partners
-app.get('/api/partners', (req, res) => {
-    res.json(partners);
+// Sample API Route
+app.post('/api/lead', (req, res) => {
+    console.log('Received data:', req.body);
+    res.status(200).json({ success: true, message: 'Data received successfully!' });
 });
 
-// 2. Order Placement & Tracking API Endpoint
-app.post('/api/order', (req, res) => {
-    const { chainLevel, district, itemDesc } = req.body;
-    if (!itemDesc) {
-        return res.status(400).json({ success: false, message: 'Item description is required.' });
-    }
-
-    const newOrder = {
-        orderId: `#BH-${Math.floor(100 + Math.random() * 900)}`,
-        chainLevel,
-        district,
-        itemDesc,
-        status: 'Self-Dispatched by Partner',
-        timestamp: new Date()
-    };
-
-    orders.push(newOrder);
-    res.json({ success: true, message: 'Order placed successfully!', order: newOrder });
-});
-
-// Get all orders
-app.get('/api/orders', (req, res) => {
-    res.json(orders);
-});
-
-// Start Server on Port 3000
-const PORT = process.mainModule ? 3000 : 3000;
-app.listen(PORT, () => {
-    console.log(`MagnitB2BSolutions Barshi Hub Server running on port ${PORT}`);
+// Dynamic Port Assignment for Render
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
