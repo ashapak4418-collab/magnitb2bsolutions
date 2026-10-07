@@ -2,43 +2,28 @@ const express = require('express');
 const cors = require('cors');
 
 const app = express();
-const PORT = 5000;
 
 // Middleware
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
-// Dummy Database (Hum isko aage real database se replace karenge)
-let fmcgOrders = [
-    { id: '#FMCG-9021', distributor: 'Apex Retailers Ltd', items: '500 Units (Beverages)', status: 'In Transit' },
-    { id: '#FMCG-9022', distributor: 'Metro Supplies', items: '1,200 Units (Packaged Foods)', status: 'Delivered' }
-];
-
-let facilityTickets = [
-    { id: '#FAC-101', task: 'HVAC Maintenance Check', location: 'Corporate Tower B', priority: 'High', status: 'Pending' }
-];
-
-// 1. API to get FMCG Orders
-app.get('/api/fmcg-orders', (req, res) => {
-    res.json(fmcgOrders);
+// Health Check Route
+app.get('/', (req, res) => {
+    res.status(200).send('🚀 MagnitB2B Backend Server is Running!');
 });
 
-// 2. API to add a new FMCG Order
-app.post('/api/fmcg-orders', (req, res) => {
-    const newOrder = req.body;
-    fmcgOrders.push(newOrder);
-    res.json({ message: 'Order added successfully!', newOrder });
+// Sample API Route
+app.post('/api/lead', (req, res) => {
+    console.log('Received data:', req.body);
+    res.status(200).json({ success: true, message: 'Data received successfully!' });
 });
 
-// 3. API to get Facility Tickets
-app.get('/api/facility-tickets', (req, res) => {
-    res.json(facilityTickets);
+// Dynamic Port Binding for Render
+const PORT = process.env.PORT || 10000;
+app.listen(PORT, '0.0.0.0', () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-// Start Server
-app.listen(PORT, () => {
-    console.log(`MagnitB2BSolutions Backend running on http://localhost:${PORT}`);
-<h2 style="color: #2c3e50; margin-bottom: 5px;">🚀 MagnitB2B Automated Control Panel</h2>    <p style="color: #666; font-size: 14px; margin-bottom: 20px;">
         Head Admin: <strong style="color: #007bff;">Ashapak Atar (7020955003)</strong>
     </p>
 
