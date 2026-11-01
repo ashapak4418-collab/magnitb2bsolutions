@@ -7,7 +7,7 @@
     <style>
         body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
         header { background: #0f172a; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 24px; font-weight: bold; color: #38bdf8; }
+        .logo { font-size: 22px; font-weight: bold; color: #38bdf8; }
         .container { max-width: 900px; margin: 30px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
         h2, h3 { color: #0f172a; }
         .form-group { margin-bottom: 20px; }
@@ -15,98 +15,108 @@
         input, select, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; }
         button { background: #2563eb; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
         button:hover { background: #1d4ed8; }
-        .hero { text-align: center; padding: 50px 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px; margin-bottom: 30px; }
-        .hero h1 { font-size: 36px; margin-bottom: 10px; }
-        .hero p { font-size: 18px; color: #94a3b8; }
+        
+        /* Hero Section (First Fold View) */
+        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px; margin-bottom: 40px; }
+        .hero span { background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: bold; }
+        .hero h1 { font-size: 42px; margin: 20px 0 10px 0; }
+        .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        
+        .section-box { margin-bottom: 50px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fafafa; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="logo">MagnitB2BSolutions</div>
-        <div>Barshi Hub Control Center (Solapur, Dharashiv, Latur, Beed)</div>
+        <div style="font-size: 14px; color: #94a3b8;">Barshi Hub Control Center</div>
     </header>
 
     <div class="container">
         
-        <!-- Hero Section -->
+        <!-- 1. HERO SECTION (Pehele Yahi Dikhega) -->
         <div class="hero">
-            <h1>The Ultimate B2B Operations Bridge</h1>
-            <p>Streamlining FMCG, Facilities & Renewable Energy Operations seamlessly.</p>
+            <span>The Ultimate B2B Operations Bridge</span>
+            <h1>Streamlining FMCG, Facilities & Renewable Energy</h1>
+            <p>MagnitB2BSolutions ek unified platform hai jo aapke supply chain orders tracking, facility management, aur green energy assets ko seamlessly connect aur manage karta hai.</p>
+            <a href="#forms-section"><button>Explore & Submit Below ⬇️</button></a>
         </div>
 
-        <!-- Section 1: Place Hub Order -->
-        <section style="margin-bottom: 40px;">
-            <h2>🛒 Place Hub Order (Retailer / Distributor)</h2>
-            <form id="hubOrderForm">
-                <div class="form-group">
-                    <label>Select Chain Level:</label>
-                    <select id="chainLevel">
-                        <option>Retailer (Kirana Store)</option>
-                        <option>Distributor</option>
-                        <option>Stockist</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Select District:</label>
-                    <select id="hubDistrict">
-                        <option>Solapur</option>
-                        <option>Dharashiv</option>
-                        <option>Latur</option>
-                        <option>Beed</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>Item Description:</label>
-                    <input type="text" id="itemDescription" placeholder="e.g. FMCG Grocery Bundle" required>
-                </div>
-                <button type="submit">Submit & Route Order</button>
-            </form>
-        </section>
+        <!-- 2. SCROLL DOWN KARNE PAR FORMS DIKhenge -->
+        <div id="forms-section">
+            
+            <!-- Hub Order Form -->
+            <div class="section-box">
+                <h2>🛒 Place Hub Order (Retailer / Distributor)</h2>
+                <form id="hubOrderForm">
+                    <div class="form-group">
+                        <label>Select Chain Level:</label>
+                        <select id="chainLevel">
+                            <option>Retailer (Kirana Store)</option>
+                            <option>Distributor</option>
+                            <option>Stockist</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Select District:</label>
+                        <select id="hubDistrict">
+                            <option>Solapur</option>
+                            <option>Dharashiv</option>
+                            <option>Latur</option>
+                            <option>Beed</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Item Description:</label>
+                        <input type="text" id="itemDescription" placeholder="e.g. FMCG Grocery Bundle" required>
+                    </div>
+                    <button type="submit">Submit & Route Order</button>
+                </form>
+            </div>
 
-        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 40px 0;">
+            <!-- Renewable Energy & Solar Lead Form -->
+            <div class="section-box">
+                <h2>☀️ Renewable Energy & Solar Lead Form</h2>
+                <p>Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
+                <form id="solarLeadForm">
+                    <div class="form-group">
+                        <label>Full Name / Company Name:</label>
+                        <input type="text" id="solarName" placeholder="Enter name or business" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number:</label>
+                        <input type="text" id="solarPhone" placeholder="Mobile / WhatsApp number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Requirement Type:</label>
+                        <select id="solarRequirement">
+                            <option>Agricultural Solar Pump</option>
+                            <option>Commercial Rooftop Solar (C&I)</option>
+                            <option>Industrial Solar Plant</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>District (Maharashtra):</label>
+                        <select id="solarDistrict">
+                            <option>Solapur</option>
+                            <option>Pune</option>
+                            <option>Dharashiv</option>
+                            <option>Latur</option>
+                            <option>Beed</option>
+                            <option>Mumbai</option>
+                            <option>Nagpur</option>
+                        </select>
+                    </div>
+                    <button type="submit">Submit Solar Lead</button>
+                </form>
+            </div>
 
-        <!-- Section 2: Renewable Energy & Solar Lead Form -->
-        <section style="margin-bottom: 40px;">
-            <h2>☀️ Renewable Energy & Solar Lead Form</h2>
-            <p>Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
-            <form id="solarLeadForm">
-                <div class="form-group">
-                    <label>Full Name / Company Name:</label>
-                    <input type="text" id="solarName" placeholder="Enter name or business" required>
-                </div>
-                <div class="form-group">
-                    <label>Contact Number:</label>
-                    <input type="text" id="solarPhone" placeholder="Mobile / WhatsApp number" required>
-                </div>
-                <div class="form-group">
-                    <label>Requirement Type:</label>
-                    <select id="solarRequirement">
-                        <option>Agricultural Solar Pump</option>
-                        <option>Commercial Rooftop Solar (C&I)</option>
-                        <option>Industrial Solar Plant</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>District (Maharashtra):</label>
-                    <select id="solarDistrict">
-                        <option>Solapur</option>
-                        <option>Pune</option>
-                        <option>Dharashiv</option>
-                        <option>Latur</option>
-                        <option>Beed</option>
-                        <option>Mumbai</option>
-                        <option>Nagpur</option>
-                    </select>
-                </div>
-                <button type="submit">Submit Solar Lead</button>
-            </form>
-        </section>
+        </div>
 
     </div>
 
     <script>
-        // Renewable Energy / Solar Form Submission to Live Render Backend
+        // Solar Lead Form Submission to Correct Render Backend URL
         document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
             e.preventDefault();
             
@@ -118,8 +128,8 @@
                 date: new Date().toLocaleString()
             };
 
-            // Live Render Backend API URL
-            fetch('https://magnitb2bsolutions-12.onrender.com/api/lead', {
+            // Correct Live Render Backend API URL (Updated to -5 service)
+            fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(leadData)
