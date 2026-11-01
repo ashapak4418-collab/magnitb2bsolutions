@@ -36,3 +36,8 @@ function showPage(pageId) {
     // Page change hote hi screen top par scroll ho jaye
     window.scrollTo(0, 0);
 }
+fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(leadData)
+})

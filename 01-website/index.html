@@ -16,13 +16,13 @@
         button { background: #2563eb; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
         button:hover { background: #1d4ed8; }
         
-        /* Hero Section (First Fold View) */
+        /* Hero Section */
         .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px; margin-bottom: 40px; }
         .hero span { background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: bold; }
         .hero h1 { font-size: 42px; margin: 20px 0 10px 0; }
         .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
         
-        .section-box { margin-bottom: 50px; padding: 20px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fafafa; }
+        .section-box { margin-bottom: 50px; padding: 25px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fafafa; }
     </style>
 </head>
 <body>
@@ -34,7 +34,7 @@
 
     <div class="container">
         
-        <!-- 1. HERO SECTION (Pehele Yahi Dikhega) -->
+        <!-- Hero Section -->
         <div class="hero">
             <span>The Ultimate B2B Operations Bridge</span>
             <h1>Streamlining FMCG, Facilities & Renewable Energy</h1>
@@ -42,10 +42,9 @@
             <a href="#forms-section"><button>Explore & Submit Below ⬇️</button></a>
         </div>
 
-        <!-- 2. SCROLL DOWN KARNE PAR FORMS DIKhenge -->
         <div id="forms-section">
             
-            <!-- Hub Order Form -->
+            <!-- 1. Hub Order Form -->
             <div class="section-box">
                 <h2>🛒 Place Hub Order (Retailer / Distributor)</h2>
                 <form id="hubOrderForm">
@@ -74,7 +73,7 @@
                 </form>
             </div>
 
-            <!-- Renewable Energy & Solar Lead Form -->
+            <!-- 2. Renewable Energy & Solar Lead Form -->
             <div class="section-box">
                 <h2>☀️ Renewable Energy & Solar Lead Form</h2>
                 <p>Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
@@ -111,16 +110,52 @@
                 </form>
             </div>
 
+            <!-- 3. Facility Management Services (FMS) Form (Added back) -->
+            <div class="section-box">
+                <h2>🏢 Facility Management Services (FMS)</h2>
+                <p>Request corporate upkeep, housekeeping, or security services.</p>
+                <form id="facilityForm">
+                    <div class="form-group">
+                        <label>Company / Client Name:</label>
+                        <input type="text" id="facilityName" placeholder="Enter company name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Contact Number:</label>
+                        <input type="text" id="facilityPhone" placeholder="Mobile / WhatsApp number" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Service Required:</label>
+                        <select id="facilityService">
+                            <option>Housekeeping & Deep Cleaning</option>
+                            <option>Security Services</option>
+                            <option>Electro-Mechanical Maintenance</option>
+                            <option>Complete Facility Management</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>District:</label>
+                        <select id="facilityDistrict">
+                            <option>Solapur</option>
+                            <option>Pune</option>
+                            <option>Dharashiv</option>
+                            <option>Latur</option>
+                            <option>Beed</option>
+                        </select>
+                    </div>
+                    <button type="submit">Submit Facility Request</button>
+                </form>
+            </div>
+
         </div>
 
     </div>
 
     <script>
-        // Solar Lead Form Submission to Correct Render Backend URL
+        // Solar Lead Form Submission
         document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            
             const leadData = {
+                type: 'Solar Lead',
                 name: document.getElementById('solarName').value,
                 phone: document.getElementById('solarPhone').value,
                 requirement: document.getElementById('solarRequirement').value,
@@ -128,7 +163,6 @@
                 date: new Date().toLocaleString()
             };
 
-            // Correct Live Render Backend API URL (Updated to -5 service)
             fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -136,12 +170,40 @@
             })
             .then(response => response.json())
             .then(data => {
-                alert('Lead Successfully Generated & Saved to MongoDB Atlas Collection!');
+                alert('Solar Lead Successfully Saved to Database!');
                 this.reset();
             })
             .catch(error => {
                 console.error('Error:', error);
-                alert('Error submitting lead. Please check connection.');
+                alert('Error submitting lead.');
+            });
+        });
+
+        // Facility Management Form Submission
+        document.getElementById('facilityForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const facilityData = {
+                type: 'Facility Management',
+                name: document.getElementById('facilityName').value,
+                phone: document.getElementById('facilityPhone').value,
+                service: document.getElementById('facilityService').value,
+                district: document.getElementById('facilityDistrict').value,
+                date: new Date().toLocaleString()
+            };
+
+            fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(facilityData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert('Facility Request Successfully Saved to Database!');
+                this.reset();
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Error submitting request.');
             });
         });
     </script>
