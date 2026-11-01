@@ -289,73 +289,7 @@
         `;
 
         orderContainer.innerHTML = newOrderHTML + orderContainer.innerHTML;
-        document.getElementById('itemDesc').value = "";
-        alert("Order successfully placed and routed through Barshi Hub!");
-    }
-</script>
-
-</body>
-</html><div class="solar-container" style="padding: 20px; font-family: Arial, sans-serif; background: #fff; border: 1px solid #ccc; border-radius: 8px; margin-top: 20px;">
-    <h3 style="color: #2c3e50; margin-top: 0;">☀️ Renewable Energy & Solar Lead Form</h3>
-    <p style="color: #666; font-size: 13px;">Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div>
-            <label style="font-size: 13px;">Full Name / Company Name:</label>
-            <input type="text" id="solarName" placeholder="Enter name or business" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-        <div>
-            <label style="font-size: 13px;">Contact Number:</label>
-            <input type="text" id="solarPhone" placeholder="Mobile / WhatsApp number" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-        </div>
-    </div>
-
-    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px;">
-        <div>
-            <label style="font-size: 13px;">Requirement Type:</label>
-            <select id="solarType" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <option value="Agricultural Solar Pump">Agricultural Solar Pump</option>
-                <option value="Commercial Rooftop Solar">Commercial Rooftop Solar (C&I)</option>
-                <option value="Industrial Solar Plant">Industrial Solar Plant</option>
-            </select>
-        </div>
-        <div>
-            <label style="font-size: 13px;">District (Maharashtra):</label>
-            <select id="solarDistrict" style="width: 100%; padding: 8px; margin: 4px 0 10px 0; border: 1px solid #ccc; border-radius: 4px;">
-                <option value="Solapur">Solapur</option>
-                <option value="Pune">Pune</option>
-                <option value="Dharashiv">Dharashiv</option>
-                <option value="Latur">Latur</option>
-                <option value="Beed">Beed</option>
-                <option value="Mumbai">Mumbai</option>
-                <option value="Nagpur">Nagpur</option>
-            </select>
-        </div>
-    </div>
-
-    <button onclick="submitSolarLead()" style="background: #ff8c00; color: white; border: none; padding: 10px 15px; border-radius: 4px; cursor: pointer; font-weight: bold; width: 100%; margin-top: 5px;">Submit Solar Lead</button>
-    <p id="solarMsg" style="margin-top: 10px; font-size: 13px; font-weight: bold;"></p>
-</div>
-
-<script>
-    function submitSolarLead() {
-        let name = document.getElementById('solarName').value;
-        let phone = document.getElementById('solarPhone').value;
-        let type = document.getElementById('solarType').value;
-        let dist = document.getElementById('solarDistrict').value;
-
-        if(name.trim() === "" || phone.trim() === "") {
-            alert("Kripya apna naam aur contact number enter karein.");
-            return;
-        }
-
-        document.getElementById('solarMsg').innerHTML = "✅ Lead Generated! " + name + " (" + type + ") in " + dist + " district routed to local certified partner. Commission tracking active.";
-        document.getElementById('solarName').value = "";
-        document.getElementById('solarPhone').value = "";
-    }
-</script>
-<a href="onboarding.html">Partner Onboarding</a>
-document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
+        document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
     e.preventDefault();
     
     const leadData = {
@@ -366,8 +300,8 @@ document.getElementById('solarLeadForm').addEventListener('submit', function(e) 
         date: new Date().toLocaleString()
     };
 
-    // Server par data bhejna
-    fetch('http://localhost:3000/api/leads', {
+    // Yahan localhost ki jagah Render ka live URL hona chahiye
+    fetch('https://magnitb2bsolutions-12.onrender.com/api/lead', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(leadData)
@@ -379,3 +313,8 @@ document.getElementById('solarLeadForm').addEventListener('submit', function(e) 
     })
     .catch(error => console.error('Error:', error));
 });
+fetch('https://magnitb2bsolutions-12.onrender.com/api/lead', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(leadData)
+})
