@@ -5,48 +5,133 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MagnitB2BSolutions | FMCG, Facility & Renewable Energy Bridge</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f7f6; color: #333; }
-        header { background: #0f172a; color: white; padding: 20px; display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 22px; font-weight: bold; color: #38bdf8; }
-        .container { max-width: 900px; margin: 30px auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        h2, h3 { color: #0f172a; }
-        .form-group { margin-bottom: 20px; }
-        label { display: block; margin-bottom: 8px; font-weight: bold; }
-        input, select, textarea { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 5px; box-sizing: border-box; }
-        button { background: #2563eb; color: white; border: none; padding: 12px 20px; font-size: 16px; border-radius: 5px; cursor: pointer; }
-        button:hover { background: #1d4ed8; }
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f8fafc; color: #1e293b; }
         
-        /* Hero Section */
-        .hero { text-align: center; padding: 60px 20px; background: linear-gradient(135deg, #0f172a, #1e293b); color: white; border-radius: 10px; margin-bottom: 40px; }
-        .hero span { background: rgba(56, 189, 248, 0.2); color: #38bdf8; padding: 6px 14px; border-radius: 20px; font-size: 14px; font-weight: bold; }
-        .hero h1 { font-size: 42px; margin: 20px 0 10px 0; }
-        .hero p { font-size: 18px; color: #94a3b8; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; }
+        /* Navbar */
+        header { background: #ffffff; padding: 15px 40px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #e2e8f0; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 22px; font-weight: bold; color: #2563eb; }
+        .nav-links { display: flex; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #475569; font-weight: 500; }
+        .btn-primary { background: #2563eb; color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: bold; cursor: pointer; }
+
+        /* Section 1: Hero */
+        .hero { text-align: center; padding: 80px 20px 50px 20px; background: #ffffff; }
+        .hero-badge { background: #eff6ff; color: #2563eb; padding: 6px 16px; border-radius: 20px; font-size: 14px; font-weight: bold; display: inline-block; margin-bottom: 20px; }
+        .hero h1 { font-size: 48px; color: #0f172a; margin-bottom: 20px; line-height: 1.2; }
+        .hero p { font-size: 18px; color: #64748b; max-width: 700px; margin: 0 auto 30px auto; }
+        .hero-btns { display: flex; justify-content: center; gap: 15px; }
+        .btn-outline { background: white; border: 1px solid #cbd5e1; padding: 12px 24px; border-radius: 6px; font-weight: bold; color: #334155; cursor: pointer; }
+
+        /* Section 2: Core Verticals */
+        .verticals-section { max-width: 1100px; margin: 50px auto; padding: 0 20px; text-align: center; }
+        .verticals-section h2 { font-size: 32px; color: #0f172a; margin-bottom: 40px; }
+        .cards-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 25px; text-align: left; }
+        .card { background: white; padding: 30px; border-radius: 12px; border: 1px solid #e2e8f0; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05); }
+        .card-icon { font-size: 28px; background: #f1f5f9; width: 50px; height: 50px; display: flex; align-items: center; justify-content: center; border-radius: 10px; margin-bottom: 20px; }
+        .card h3 { font-size: 20px; color: #0f172a; margin-bottom: 10px; }
+        .card p { color: #64748b; font-size: 15px; line-height: 1.5; }
+
+        /* Section 3: Ready to Bridge Blue Banner */
+        .cta-banner { background: #1e3a8a; color: white; text-align: center; padding: 70px 20px; margin: 60px 0; }
+        .cta-banner h2 { font-size: 36px; margin-bottom: 15px; }
+        .cta-banner p { color: #93c5fd; font-size: 16px; margin-bottom: 30px; }
+        .cta-form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+        .cta-form input { padding: 14px; border-radius: 6px; border: none; font-size: 15px; }
+        .cta-form button { background: #3b82f6; color: white; border: none; padding: 14px; border-radius: 6px; font-weight: bold; font-size: 16px; cursor: pointer; }
+
+        /* Section 4 & 5: Hub Control Center & Forms Container */
+        .main-container { max-width: 1100px; margin: 0 auto 60px auto; padding: 0 20px; }
+        .hub-header { background: #ffffff; padding: 25px; border-radius: 10px; border: 1px solid #e2e8f0; margin-bottom: 30px; }
+        .hub-header h2 { margin: 0 0 10px 0; color: #0f172a; font-size: 24px; }
+        .hub-header p { margin: 5px 0; color: #475569; font-size: 14px; }
         
-        .section-box { margin-bottom: 50px; padding: 25px; border: 1px solid #e2e8f0; border-radius: 8px; background: #fafafa; }
+        .form-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-bottom: 30px; }
+        .form-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #e2e8f0; }
+        .form-box h3 { margin-top: 0; color: #0f172a; font-size: 18px; margin-bottom: 15px; }
+        .form-group { margin-bottom: 15px; }
+        label { display: block; margin-bottom: 6px; font-weight: 600; font-size: 14px; color: #334155; }
+        input, select { width: 100%; padding: 10px; border: 1px solid #cbd5e1; border-radius: 6px; box-sizing: border-box; font-size: 14px; }
+        
+        .btn-submit { background: #16a34a; color: white; border: none; padding: 12px; width: 100%; font-size: 15px; font-weight: bold; border-radius: 6px; cursor: pointer; }
+        .btn-submit:hover { background: #15803d; }
+        
+        /* Tracking Box */
+        .tracking-box { background: white; padding: 25px; border-radius: 10px; border: 1px solid #e2e8f0; border-left: 4px solid #f59e0b; }
+        .tracking-box h3 { margin-top: 0; color: #0f172a; font-size: 18px; margin-bottom: 15px; }
+        .tracking-card { background: #fffbeb; border: 1px solid #fde68a; padding: 15px; border-radius: 6px; }
+        .tracking-card p { margin: 5px 0; font-size: 14px; color: #b45309; font-weight: bold; }
     </style>
 </head>
 <body>
 
+    <!-- Navbar -->
     <header>
         <div class="logo">MagnitB2BSolutions</div>
-        <div style="font-size: 14px; color: #94a3b8;">Barshi Hub Control Center</div>
+        <div class="nav-links">
+            <a href="#">Sectors</a>
+            <a href="#">Features</a>
+            <a href="#">Request Demo</a>
+            <button class="btn-primary">Get Started</button>
+        </div>
     </header>
 
-    <div class="container">
+    <!-- Section 1: Hero Section -->
+    <div class="hero">
+        <div class="hero-badge">The Ultimate B2B Operations Bridge</div>
+        <h1>Streamlining FMCG, Facilities & Renewable Energy</h1>
+        <p>MagnitB2BSolutions ek unified platform hai jo aapke supply chain orders tracking, facility management, aur green energy assets ko seamlessly connect aur manage karta hai.</p>
+        <div class="hero-btns">
+            <button class="btn-primary" style="padding: 12px 24px;">Book a Demo</button>
+            <button class="btn-outline">Explore Sectors</button>
+        </div>
+    </div>
+
+    <!-- Section 2: Our 3 Core B2B Verticals -->
+    <div class="verticals-section">
+        <h2>Our 3 Core B2B Verticals</h2>
+        <div class="cards-grid">
+            <div class="card">
+                <div class="card-icon">🛒</div>
+                <h3>1. FMCG Supply Tracker</h3>
+                <p>Orders placed vs. delivered live tracking, automated inventory alerts, aur seamless invoice reconciliation.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">🏢</div>
+                <h3>2. Facility Management</h3>
+                <p>On-demand professional vendor marketplace, automated ticketing system, aur strict SLA performance tracking.</p>
+            </div>
+            <div class="card">
+                <div class="card-icon">⚡</div>
+                <h3>3. Renewable Energy</h3>
+                <p>Green equipment B2B marketplace, maintenance scheduling, aur automated ESG carbon-offset reporting.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Section 3: Ready to Bridge Your Operations? -->
+    <div class="cta-banner">
+        <h2>Ready to Bridge Your Operations?</h2>
+        <p>MagnitB2BSolutions ke sath apne business operations ko automate karein.</p>
+        <form class="cta-form" id="accessForm">
+            <input type="text" id="accessName" placeholder="Your Name / Company Name" required>
+            <input type="email" id="accessEmail" placeholder="Business Email Address" required>
+            <button type="submit">Request Access</button>
+        </form>
+    </div>
+
+    <!-- Section 4 & 5: Hub Control Center & Forms -->
+    <div class="main-container">
         
-        <!-- Hero Section -->
-        <div class="hero">
-            <span>The Ultimate B2B Operations Bridge</span>
-            <h1>Streamlining FMCG, Facilities & Renewable Energy</h1>
-            <p>MagnitB2BSolutions ek unified platform hai jo aapke supply chain orders tracking, facility management, aur green energy assets ko seamlessly connect aur manage karta hai.</p>
-            <a href="#forms-section"><button>Explore & Submit Below ⬇️</button></a>
+        <div class="hub-header">
+            <h2>MagnitB2BSolutions: Barshi Hub Control Center</h2>
+            <p><strong>Operations Hub for:</strong> Solapur, Dharashiv, Latur, Beed | <strong>Head Admin:</strong> Ashapak Atar (7020955003)</p>
+            <p style="color: #dc2626; font-style: italic;">Delivery Model: Partners deliver own goods; platform tracks status only.*</p>
         </div>
 
-        <div id="forms-section">
-            
-            <!-- 1. Hub Order Form -->
-            <div class="section-box">
-                <h2>🛒 Place Hub Order (Retailer / Distributor)</h2>
+        <div class="form-grid-2">
+            <!-- Place Hub Order Form -->
+            <div class="form-box">
+                <h3>🛒 Place Hub Order (Retailer / Distributor)</h3>
                 <form id="hubOrderForm">
                     <div class="form-group">
                         <label>Select Chain Level:</label>
@@ -69,80 +154,86 @@
                         <label>Item Description:</label>
                         <input type="text" id="itemDescription" placeholder="e.g. FMCG Grocery Bundle" required>
                     </div>
-                    <button type="submit">Submit & Route Order</button>
+                    <button type="submit" class="btn-submit">Submit & Route Order</button>
                 </form>
             </div>
 
-            <!-- 2. Renewable Energy & Solar Lead Form -->
-            <div class="section-box">
-                <h2>☀️ Renewable Energy & Solar Lead Form</h2>
-                <p>Generate C&I Rooftop or Agricultural Solar leads across Maharashtra.</p>
+            <!-- Live Self-Delivery Tracking -->
+            <div class="tracking-box">
+                <h3>🚚 Live Self-Delivery Tracking</h3>
+                <div class="tracking-card">
+                    <p>#BH-101 (Solapur)</p>
+                    <p style="color: #334155; font-weight: normal;">Retailer &rarr; Stockist</p>
+                    <p>Status: <span style="color: #16a34a;">Self-Dispatched by Partner</span></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Renewable Energy & Facility Management Forms Grid -->
+        <div class="form-grid-2">
+            
+            <!-- Renewable Energy Onboarding -->
+            <div class="form-box">
+                <h3>⚡ Renewable Energy Partner & Distributor Onboarding</h3>
+                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Register solar companies, EPC contractors, and local distributors.</p>
                 <form id="solarLeadForm">
                     <div class="form-group">
-                        <label>Full Name / Company Name:</label>
-                        <input type="text" id="solarName" placeholder="Enter name or business" required>
+                        <label>Company / Distributor Name:</label>
+                        <input type="text" id="solarName" placeholder="Enter business name" required>
                     </div>
                     <div class="form-group">
-                        <label>Contact Number:</label>
-                        <input type="text" id="solarPhone" placeholder="Mobile / WhatsApp number" required>
+                        <label>Contact Person / Owner:</label>
+                        <input type="text" id="solarOwner" placeholder="Owner name" required>
                     </div>
                     <div class="form-group">
-                        <label>Requirement Type:</label>
-                        <select id="solarRequirement">
-                            <option>Agricultural Solar Pump</option>
-                            <option>Commercial Rooftop Solar (C&I)</option>
-                            <option>Industrial Solar Plant</option>
-                        </select>
+                        <label>Phone / WhatsApp Number:</label>
+                        <input type="text" id="solarPhone" placeholder="Mobile number" required>
                     </div>
                     <div class="form-group">
-                        <label>District (Maharashtra):</label>
+                        <label>Operating District / Region:</label>
                         <select id="solarDistrict">
                             <option>Solapur</option>
-                            <option>Pune</option>
                             <option>Dharashiv</option>
                             <option>Latur</option>
                             <option>Beed</option>
-                            <option>Mumbai</option>
-                            <option>Nagpur</option>
                         </select>
                     </div>
-                    <button type="submit">Submit Solar Lead</button>
+                    <button type="submit" class="btn-submit">Register Partner / Company</button>
                 </form>
             </div>
 
-            <!-- 3. Facility Management Services (FMS) Form (Added back) -->
-            <div class="section-box">
-                <h2>🏢 Facility Management Services (FMS)</h2>
-                <p>Request corporate upkeep, housekeeping, or security services.</p>
+            <!-- Facility Management Services (FMS) -->
+            <div class="form-box">
+                <h3>🏢 Facility Management Services (FMS)</h3>
+                <p style="font-size: 13px; color: #64748b; margin-bottom: 15px;">Request housekeeping, security, or maintenance for offices & factories.</p>
                 <form id="facilityForm">
                     <div class="form-group">
-                        <label>Company / Client Name:</label>
-                        <input type="text" id="facilityName" placeholder="Enter company name" required>
+                        <label>Company / Society Name:</label>
+                        <input type="text" id="facilityName" placeholder="Enter organization name" required>
                     </div>
                     <div class="form-group">
                         <label>Contact Number:</label>
-                        <input type="text" id="facilityPhone" placeholder="Mobile / WhatsApp number" required>
+                        <input type="text" id="facilityPhone" placeholder="Mobile number" required>
                     </div>
                     <div class="form-group">
                         <label>Service Required:</label>
                         <select id="facilityService">
-                            <option>Housekeeping & Deep Cleaning</option>
+                            <option>Housekeeping & Cleaning</option>
                             <option>Security Services</option>
                             <option>Electro-Mechanical Maintenance</option>
                             <option>Complete Facility Management</option>
                         </select>
                     </div>
                     <div class="form-group">
-                        <label>District:</label>
+                        <label>District / Location:</label>
                         <select id="facilityDistrict">
                             <option>Solapur</option>
-                            <option>Pune</option>
                             <option>Dharashiv</option>
                             <option>Latur</option>
                             <option>Beed</option>
                         </select>
                     </div>
-                    <button type="submit">Submit Facility Request</button>
+                    <button type="submit" class="btn-submit" style="background: #2563eb;">Book Facility Service</button>
                 </form>
             </div>
 
@@ -151,61 +242,67 @@
     </div>
 
     <script>
-        // Solar Lead Form Submission
+        const backendURL = 'https://magnitb2bsolutions-5.onrender.com/api/lead';
+
+        // Hub Order Form
+        document.getElementById('hubOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const data = {
+                type: 'Hub Order',
+                chainLevel: document.getElementById('chainLevel').value,
+                district: document.getElementById('hubDistrict').value,
+                item: document.getElementById('itemDescription').value,
+                date: new Date().toLocaleString()
+            };
+            sendData(data, this);
+        });
+
+        // Solar Partner Onboarding
         document.getElementById('solarLeadForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const leadData = {
-                type: 'Solar Lead',
-                name: document.getElementById('solarName').value,
+            const data = {
+                type: 'Solar Onboarding',
+                company: document.getElementById('solarName').value,
+                owner: document.getElementById('solarOwner').value,
                 phone: document.getElementById('solarPhone').value,
-                requirement: document.getElementById('solarRequirement').value,
                 district: document.getElementById('solarDistrict').value,
                 date: new Date().toLocaleString()
             };
-
-            fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(leadData)
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert('Solar Lead Successfully Saved to Database!');
-                this.reset();
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error submitting lead.');
-            });
+            sendData(data, this);
         });
 
-        // Facility Management Form Submission
+        // Facility Management Form
         document.getElementById('facilityForm').addEventListener('submit', function(e) {
             e.preventDefault();
-            const facilityData = {
+            const data = {
                 type: 'Facility Management',
-                name: document.getElementById('facilityName').value,
+                organization: document.getElementById('facilityName').value,
                 phone: document.getElementById('facilityPhone').value,
                 service: document.getElementById('facilityService').value,
                 district: document.getElementById('facilityDistrict').value,
                 date: new Date().toLocaleString()
             };
+            sendData(data, this);
+        });
 
-            fetch('https://magnitb2bsolutions-5.onrender.com/api/lead', {
+        // Helper function to send data to Render API
+        function sendData(payload, formElement) {
+            fetch(backendURL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(facilityData)
+                body: JSON.stringify(payload)
             })
-            .then(response => response.json())
-            .then(data => {
-                alert('Facility Request Successfully Saved to Database!');
-                this.reset();
+            .then(res => res.json())
+            .then(resData => {
+                alert('Success! Data saved to database.');
+                formElement.reset();
             })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Error submitting request.');
+            .catch(err => {
+                console.error(err);
+                alert('Error connecting to server.');
             });
-        });
+        }
     </script>
+
 </body>
 </html>
