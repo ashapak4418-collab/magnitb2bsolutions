@@ -18,7 +18,11 @@ const allowedOrigins = [
 
 app.use(cors({
     origin: function (origin, callback) {
-        if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+        if (!origin || allowedOrigins.const allowedOrigins = [
+  'https://magnitb2bsolutions-01-website-udiw.vercel.app',
+  'http://localhost:3000',
+  'http://localhost:5173'
+];indexOf(origin) !== -1) {
             callback(null, true);
         } else {
             callback(new Error('CORS Policy Restriction: Access Denied'));
